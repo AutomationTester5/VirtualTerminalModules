@@ -10,6 +10,8 @@ public class HomePage {
 	    
 	    private By userMgtclick = By.xpath("//*[@id=\"app-site\"]/div/div[1]/div[2]/div/div/div[2]/div[1]/ul/li[2]/a/span/span");
 	    private By merMgtclick = By.xpath("//span[contains(text(),'Merchant Management')]");
+	    private By virterminalclick = By.xpath("//*[@id=\"app-site\"]/div/div[1]/div[2]/div/div/div[2]/div[1]/ul/li[4]/a");
+	    
 	    
 	    public HomePage(WebDriver driver) {
 	        this.driver = driver;
@@ -37,6 +39,12 @@ public class HomePage {
 	        
 	    }
 	        
+	    public VirtualTerminalPage virtualclick() throws InterruptedException {
+	    	Thread.sleep(3000);
+	    	driver.findElement(virterminalclick).click();
+	    	return new VirtualTerminalPage(driver);
+	    
+	    }
 	        
 	            
 	        
@@ -44,5 +52,5 @@ public class HomePage {
 
 
 
-	}
+}
 

@@ -137,5 +137,6 @@ public class MerchantManagementStepDefination {
 	public void user_is_select_to_all_the_modules() {
 
 	}
+	
 
 }

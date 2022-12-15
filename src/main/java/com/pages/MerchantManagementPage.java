@@ -59,7 +59,7 @@ public class MerchantManagementPage {
 	private By addde = By.xpath("//span[contains(text(),'Add')]");
 	//private By ant = By .xpath("//button[@class='MuiButtonBase-root-607 MuiButton-root-772 MuiButton-text-774 jr-btn next-btn hoverBtn MuiButton-contained MuiButton-containedPrimary']//span[@class='MuiButton-label-773']//span");
 	private By more = By.xpath("//*[@id=\"body\"]/div[2]/div[3]/div/div[2]/button[1]/span[1]/span");
-	private By onboard = By.xpath("//span[normalize-space()='Onboard Merchant']");
+	private By onboard = By.xpath("//span[@class='y2']");
 	
 	
 	public MerchantManagementPage(WebDriver driver) {

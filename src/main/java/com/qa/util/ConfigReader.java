@@ -24,6 +24,9 @@ private Properties prop;
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+            
+        }catch(Exception e) {
+        	e.printStackTrace();
         }
 
 
