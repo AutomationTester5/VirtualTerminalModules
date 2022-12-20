@@ -5,16 +5,19 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
+import org.apache.poi.util.SystemOutLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.safari.SafariDriver.WindowType;
+import org.openqa.selenium.support.ui.Select;
 
 import com.testing.framework.EmailUtils;
 import com.twilio.Twilio;
@@ -58,12 +61,14 @@ public class VirtualTerminalPage {
 	private By auth = By.xpath("//input[@value='1']");
 	private By rf = By.xpath("//input[@value='2']");
 	
-	//private By cash = By.xpath("//input[@value='5']");
+	private By cash = By.xpath("//input[@value='5']");
 	private By ed = By.id("identifierId");
 	private By ps = By.name("Passwd");
 	
 	private By cmo = By.xpath("//span[@class='y2']");
 	//private By cmo = By.xpath("//tr[@class='zA zE x7']//span[@class='y2']");
+	private By aprs=By.xpath("//span[contains(text(),'Proceed')]");
+	
 	 
 	
 	public VirtualTerminalPage(WebDriver driver) {
@@ -121,13 +126,6 @@ public class VirtualTerminalPage {
 	
 	}
 	
-	/*public void atut()  throws InterruptedException {
-	int at =1000;
-    
-		driver.findElement(amnt).sendKeys("at");
-		for(int i = 0; i<4; i++) {
-			at +=1000;
-}*/
 	
 	
 	public void authoriz() throws InterruptedException {
@@ -135,12 +133,32 @@ public class VirtualTerminalPage {
 		Thread.sleep(3000);
 	driver.findElement(auth).click();
 	driver.findElement(amnt).sendKeys("1054");
+	driver.findElement(cdnumber).sendKeys("4761530001111118");
+	//driver.findElement(crdholdr).sendKeys("VigneshAuth");
+	
+	}
+	
+	public void Txn() throws InterruptedException {
+		
+	driver.findElement(By.xpath("//span[contains(text(),'Transactions')]")).click();
+	driver.findElement(By.id("outlined-name")).sendKeys("1118");
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//button[@title='Options']")).click();
+	List<WebElement> terminal = driver.findElements(By.xpath("//ul[@role='menu']/li"));
+    System.out.println("this capture auth  size is"+terminal.size());
+    terminal.get(2).click();
+    driver.findElement(aprs).click();
+	driver.findElement(close).click();
 	
 	}
 	
 
 	public void refund() throws Exception {
-	
+		driver.findElement(By.xpath("//*[@id=\"app-site\"]/div/div[1]/div[2]/div/div/div[2]/div[1]/ul/li[4]/a")).click();
+	driver.findElement(epitype).click();
+	List<WebElement> terminal = driver.findElements(By.xpath("//ul[@role='menu']/li"));
+    System.out.println("this size is"+terminal.size());
+ terminal.get(2).click();
 		driver.findElement(rf).click();
 		driver.findElement(amnt).sendKeys("1034");
 		driver.findElement(cdnumber).sendKeys("4111111111111111");
@@ -216,9 +234,10 @@ public class VirtualTerminalPage {
 		driver.findElement(ps).sendKeys("Amma7639552076");
 		driver.findElement(By.id("passwordNext")).click();
 		
+		 //String eWindow= driver.getWindowHandle();
 		//for(int i = 0; i<20; i++) {
-		//driver.findElement(By.xpath("//*[@id=\":4\"]/div/div[1]/div[1]/div/div/div[5]/div")).click();
-		Thread.sleep(20000);
+		driver.findElement(By.xpath("//body/div[7]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]")).click();
+		Thread.sleep(25000);
 		//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		
 		driver.findElement(cmo).click();
@@ -237,11 +256,158 @@ public class VirtualTerminalPage {
 		
 		}
 		
+	public void Einvoice() throws Exception {
 		
 		
+		driver.findElement(By.xpath("//input[@value='3']")).click();
+		driver.findElement(amnt).sendKeys("1020");
+		driver.findElement(phn).sendKeys("7639552000");
+		driver.findElement(em).sendKeys("valorautomation@gmail.com");
+		driver.findElement(By.xpath("//span[normalize-space()='Send E-Invoice']")).click();
+		driver.findElement(By.xpath("//span[contains(text(),'Process')]")).click();
+		driver.findElement(By.xpath("//span[contains(text(),'OK')]")).click();
 		
+		//driver.switchTo().window(eWindow);
+		// String yesWindow= driver.getWindowHandle();
+		Thread.sleep(20000);
+		    JavascriptExecutor jse = (JavascriptExecutor)driver;
+		    jse.executeScript("window.open()");
+		  //  driver.get("https://accounts.google.com/");
+		    
+		    ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+	        driver.switchTo().window(tabs.get(1));
+	        
+	         driver.get("https://mail.google.com/mail/u/0/#inbox");
+		    
+			//driver.findElement(ed).sendKeys("valorautomation@gmail.com");
+			//driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/div/button/span")).click();
+			//Thread.sleep(3000);
+			//driver.findElement(ps).sendKeys("Amma7639552076");
+			//driver.findElement(By.id("passwordNext")).click();
+			
+			 //String eWindow= driver.getWindowHandle();
+			for(int i = 0; i<20; i++) {
+			driver.findElement(By.xpath("//body/div[7]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]")).click();
+			//Thread.sleep(3000);
+			driver.findElement(By.xpath("//body/div[7]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]")).click();
+			}
+			
+			driver.findElement(By.xpath("//body/div[7]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]")).click();
+			driver.findElement(By.xpath("//body/div[7]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]")).click();
+			Thread.sleep(3000);
+			driver.findElement(By.xpath("//body/div[7]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]")).click();
+			//for(int i = 0; i<5; i++) {
+			Thread.sleep(40000);
+			driver.findElement(By.xpath("//body[1]/div[7]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[8]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[5]/div[1]/div[1]/span[1]")).click();
+			//}
+			//driver.switchTo().window(null);
+			Thread.sleep(3000);
+			
+			
+			
+			//String parentHandle= driver.getWindowHandle();
+			//System.out.println("Parent window-"+parentHandle);
+			driver.findElement(By.xpath("//a[normalize-space()='Pay Now']")).click();
+			Thread.sleep(6000);
+			//driver.close();
+		//Set<String> handles = driver.getWindowHandles(); 
+			// driver.switchTo().window(handles)
+			// driver.findElement(By.name("cardnumber")).sendKeys("4111111111111");
+			 
+			// driver.findElement(By.name("cardnumber")).sendKeys("4111111111111");
+			
+			 // for (String handle : handles) { System.out.println(handle);
+			  
+			 // if (!handle.equals(parentHandle)) {
+			 // driver.switchTo().window(handle);
+			 ArrayList<String> tabs1 = new ArrayList<String>(driver.getWindowHandles());
+			  driver.switchTo().window(tabs1.get(3));
+			  driver.findElement(By.name("cardnumber")).sendKeys("4111111111111111");
+			 // List<WebElement> toAct =driver.findElements(By.id("expiry_month"));
+			  Select my = new Select(driver.findElement(By.id("expiry_month")));
+			  my.selectByIndex(5);
+			  Select yyyy = new Select(driver.findElement(By.id("expiry_year")));
+			  yyyy.selectByIndex(5);
+			  driver.findElement(By.name("cvv")).sendKeys("999");
+			  driver.findElement(By.name("cardholdername")).sendKeys("Vignesh");
+			  driver.findElement(By.id("phone")).sendKeys("7639554547");
+			  driver.findElement(By.id("tipManual")).sendKeys("1000");
+			  driver.findElement(By.name("submit")).click();
+			}
+			  
+		  
+			  
+	public void gifttxn() throws Exception { 
+		 ArrayList<String> tabs1 = new ArrayList<String>(driver.getWindowHandles());
+		  driver.switchTo().window(tabs1.get(0));
+		  driver.findElement(By.xpath("//input[@value='4']")).click();
+		  driver.findElement(By.xpath("//div[normalize-space()='SALE']")).click();
+		  Thread.sleep(3000);
+		  List<WebElement>filter = driver.findElements(By.xpath("//ul[@role='menu']/li"));
+		  filter.get(0).click();
+			/*
+			 * for(WebElement ftype:filter) {
+			 * 
+			 * if(ftype.getText().equals("SALE"))
+			 * 
+			 * {
+			 * 
+			 * ftype.click();
+			 * 
+			 * break;
+			 * 
+			 * }
+			 * 
+			 * }
+			 */
+
+         
+		  Thread.sleep(3000);
+		  driver.findElement(amnt).sendKeys("1020");
+		  driver.findElement(phn).sendKeys("7639552000");
+		  driver.findElement(em).sendKeys("valorauto123mation@gmail.com");
+		  driver.findElement(By.name("cardNo")).sendKeys("7108330000122158319");
+		  driver.findElement(By.name("pin")).sendKeys("18500305");
+		  driver.findElement(By.xpath("//div[@class='MuiGrid-root saveButtonVoid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-12']//span[@class='MuiButton-label']")).click();
+		 // driver.findElement(By.xpath("//div[@class='MuiGrid-root saveButtonVoid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-12']")).click();
+		  driver.findElement(By.xpath("//span[contains(text(),'Process')]")).click();
+		  
+			driver.findElement(By.xpath("//span[contains(text(),'Close')]")).click();
+		  
+		 
+		  }
+
+
+	//driver.findElement(By.id("expiry_month"));
+			 // Select
+			//  em.selectByValue("5");
+			 
+			 //Thread.sleep(3000);
+			//driver.findElement(By.xpath("//a[normalize-space()='Pay Now']")).click();
+			/* driver.switchTo().window(payWindw); */
+			
+			
+		
+			
+			
+			
+			
+	
+	//}
 		
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//public void windowsclose() throws Exception {
+	//driver.quit();	
+	//}
 		
 		
 		/*EmailUtils emailutils = new EmailUtils();
@@ -273,23 +439,29 @@ public class VirtualTerminalPage {
 		}*/
 	
 	
-		/*
-		 * public void cashTxn() throws InterruptedException {
-		 * 
-		 * driver.findElement(cash).click(); driver.findElement(amnt).sendKeys("1230");
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * }
-		 */
-}
-	
 		
+		 public void cashTxn() throws InterruptedException {
+		  
+		  driver.findElement(cash).click(); driver.findElement(amnt).sendKeys("1230");
+		  driver.findElement(amnt).sendKeys("1020");
+			driver.findElement(phn).sendKeys("7639552000");
+			driver.findElement(em).sendKeys("Vigneshwa11ran@valorpaytech.com");
+			 driver.findElement(By.xpath("//span[normalize-space()='Process $']")).click();
+			 driver.findElement(By.xpath("//span[contains(text(),'OK')]")).click();
+			  
+				
+		 
+		 
+		 
+		 		 
+		  }
+		 
+
+
+
+	
+	
+}
 
 
 

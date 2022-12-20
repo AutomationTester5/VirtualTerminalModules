@@ -3,7 +3,7 @@ Feature: Boarding the virtual terminal Feature
 Background:
 Given user is on VirtualTerminalPage
 		|username|password|
-		|vigneshradhakrishnan76+dtysys1@gmail.com|Valor123|
+		|vigneshradhakrishnan76+pinmerchant@gmail.com|Valor123|
 		
 Scenario Outline:Boarding virtual terminal with different set of transaction Sale,Authorization,Refund,E-Invoice,GiftCard,Cash
   When click to the Virtual Terminal modules

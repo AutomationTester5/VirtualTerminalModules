@@ -30,7 +30,7 @@ public class virtualTerminalPageStepdefination {
 		List<Map<String, String>> credList = credTable.asMaps();
 		String userName = credList.get(0).get("username");
 		String password = credList.get(0).get("password");
-		DriverFactory.getDriver().get("https://demo.valorpaytech.com/signin");
+		DriverFactory.getDriver().get("https://uat.valorpaytech.com/signin");
 		homePage = loginPage.doLogin(userName, password);
 		virtualterminalpage = homePage.virtualclick();
 		
@@ -88,11 +88,16 @@ public class virtualTerminalPageStepdefination {
 	public void click_the_authorization_transaction() throws InterruptedException {
 		for(int i = 0; i<1; i++) {
 		virtualterminalpage.authoriz();
-	    virtualterminalpage.cardNumber();
+	  //  virtualterminalpage.cardNumber();
 	    virtualterminalpage.CVV();
 	    virtualterminalpage.cardHolderName();
 	    virtualterminalpage.Process();
+	    virtualterminalpage.Txn();
 		}
+		
+		
+		
+		
 	    
 	}
 	
@@ -107,14 +112,10 @@ public class virtualTerminalPageStepdefination {
 			
 
 		@When("click to the cash")
-		public void click_to_the_cash() throws InterruptedException {
-		    
-			/*
-			 * for(int i = 0; i<2; i++) { virtualterminalpage.cashTxn();
-			 * virtualterminalpage.cardNumber(); virtualterminalpage.CVV();
-			 * virtualterminalpage.cardHolderName(); virtualterminalpage.Process(); }
-			 */
-			
+		public void click_to_the_cash() throws Exception {
+			virtualterminalpage.Einvoice();
+			virtualterminalpage.gifttxn();
+			virtualterminalpage.cashTxn();
 			
 		}
 	

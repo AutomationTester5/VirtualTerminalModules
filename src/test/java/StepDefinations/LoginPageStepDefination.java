@@ -16,7 +16,7 @@ public class LoginPageStepDefination {
 	    
 	    @Given("user is on loginpage")
 	    public void user_is_on_loginpage() {
-	         DriverFactory.getDriver().get("https://demo.valorpaytech.com/signin");
+	         DriverFactory.getDriver().get("https://uat.valorpaytech.com/signin");
 	    }
 
 
