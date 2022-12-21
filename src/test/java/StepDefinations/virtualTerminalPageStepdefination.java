@@ -95,11 +95,9 @@ public class virtualTerminalPageStepdefination {
 	    virtualterminalpage.Txn();
 		}
 		
-		
-		
-		
-	    
-	}
+		}
+	
+
 	
 		@When("click to refund transaction")
 		public void click_to_refund_transaction() throws Exception {
@@ -110,16 +108,37 @@ public class virtualTerminalPageStepdefination {
 			
 		}
 			
+		@When("click to the einvoice transaction with paynow link,valor lite QR,flexsible,never expiry")
+		public void click_to_the_einvoice_transaction_with_paynow_link_valor_lite_qr_flexsible_never_expiry() throws Exception {
+			
+			virtualterminalpage.Einvoice();
+			virtualterminalpage.paynow();
+			//virtualterminalpage.paynowwithFlexible();
+			//virtualterminalpage.paynowwithNeverExpire();
+			//virtualterminalpage.paynowBothFlexandNever();
+			//virtualterminalpage.valorLiteQR();
+			virtualterminalpage.manageEinvoice();
+			virtualterminalpage.transactionsfilteringoptinclick();
+			virtualterminalpage.statusfilteringoptinclick();
+			virtualterminalpage.IDFilteringOptinclick();
+			virtualterminalpage.srchClick();
+			virtualterminalpage.gifttxn();
+		}
+
+		
+		
+		
+		
+		
 
 		@When("click to the cash")
 		public void click_to_the_cash() throws Exception {
-			virtualterminalpage.Einvoice();
-			virtualterminalpage.gifttxn();
 			virtualterminalpage.cashTxn();
 			
 		}
 	
-	
+		
+		
 		
 	
 	

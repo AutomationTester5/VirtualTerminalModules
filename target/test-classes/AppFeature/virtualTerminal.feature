@@ -15,7 +15,9 @@ Scenario Outline:Boarding virtual terminal with different set of transaction Sal
   And multiple sale transaction
   When click the authorization transaction
   When click to refund transaction
+   When click to the einvoice transaction with paynow link,valor lite QR,flexsible,never expiry
   And click to the cash
+  
   
   
  Examples: 

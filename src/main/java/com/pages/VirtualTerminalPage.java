@@ -16,6 +16,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver.WindowType;
 import org.openqa.selenium.support.ui.Select;
 
@@ -69,7 +70,59 @@ public class VirtualTerminalPage {
 	//private By cmo = By.xpath("//tr[@class='zA zE x7']//span[@class='y2']");
 	private By aprs=By.xpath("//span[contains(text(),'Proceed')]");
 	
-	 
+	//PayNow Link:
+	private By payNL = By.xpath("//span[@title='PayNowLink']//input[@type='checkbox']");
+	private By flex = By.xpath("//div[@class='col-4']//span[@title='PayNowLink']//input[@type='checkbox']");
+	private By nVE = By.xpath("//span[contains(@title,'Never Expire')]//input[contains(@type,'checkbox')]");
+	private By custName	= By.name("customerName");
+	private By invcn	= By.name("invoiceNumber");
+	private By sendPay = By.xpath("//span[normalize-space()='Send PayNow']");
+	
+	//ValorLite QR:
+	private By vLQ =By.xpath("//span[@title='Valor QR']//input[@type='checkbox']");
+	private By lab =By.name("label");
+	private By decrpt =By.xpath("//input[contains(@name,'description')]");
+	//private By genrt = By.name("//span[normalize-space()='Generate QR']");
+	private By ok  = By.xpath("//span[contains(text(),'OK')]");
+	private By coplink = By.xpath("//span[normalize-space()='copy link']");
+	private By print = By.xpath("//span[normalize-space()='Print']");
+	
+	//MANGE:
+	private By manage = By.xpath("//span[contains(@class,'MuiButton-label')]//span[contains(text(),'Manage')]");
+	
+	//E-INVOICE
+	private By Einvoice = By.xpath("//span[normalize-space()='E-Invoices']");
+	private By Idcopy = By.xpath("//*[@id=\"app-site\"]/div/div[1]/div[3]/main/div/div[1]/div/div/div/div[2]/div/div/div[5]/div/div/div[2]/div/div/div[1]/div/div[1]/h3/span/text()[1]");
+	private By Search = By.id("outlined-name");
+	private By Fltr = By.xpath("//body/div/div/div/div/main/div/div/div/div/div/div/div/div/div/button[1]");
+	private By Datefilter = By.xpath("//body/div[@role='presentation']/div[@role='none presentation']/div[@role='dialog']/div/div/div/button[@name='Date_filter']/span[1]");
+	private By Status = By.xpath("//button[@name='Status']");
+	private By Freeselect = By.xpath("//button[@name='Free_Select']");
+	private By srch = By.xpath("//button[@class='MuiButtonBase-root-3509 MuiButton-root-3482 MuiButton-contained-3490 MuiButton-containedPrimary-3491']");
+	private By Reset = By.xpath("//span[contains(text(),'Reset')]");
+	private By Close = By.xpath("//span[contains(text(),'Close')]");
+	private By Sh = By.xpath("//span[contains(text(),'Search')]");
+	private By Action = By.xpath("//span[contains(text(),'Action')]");
+	private By Refresh = By.xpath("//button[@title='Refresh ']");
+	private By Threedot = By.xpath("//button[@title='Options']");
+	private By Back = By.xpath("//button[@class='MuiButtonBase-root-4442 MuiButton-root-4415 MuiButton-contained-4423 m-2 MuiButton-containedPrimary-4424']");
+	private By muifilter = By.xpath("//button[@type='button']//span//span//i");
+	
+	
+	//RECURRING BILLING
+	private By recurringbill = By.xpath("//span[contains(text(),'Recurring billing')]");
+	private By Subscriptionid = By.xpath("//body[1]/div[1]/div[1]/div[1]/div[3]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/span[1]");
+	
+	//WHITELIST IPADDRESS
+	private By whitelistIP = By.xpath("//span[contains(text(),'Whitelist IPAddress')]");
+	private By ipaddress = By.xpath("//input[@id='primaryIP']");
+	private By description = By.xpath("//input[@placeholder='description']");
+	private By cancel= By.xpath("//span[contains(text(),'Cancel')]");
+	
+	//APIKEYS
+	private By apikeys = By.xpath("//span[normalize-space()='API KEYS']");
+	
+	
 	
 	public VirtualTerminalPage(WebDriver driver) {
 		this.driver = driver;
@@ -335,11 +388,232 @@ public class VirtualTerminalPage {
 			  driver.findElement(By.name("submit")).click();
 			}
 			  
+	
+	public void paynow() throws Exception { 
+		ArrayList<String> tabs1 = new ArrayList<String>(driver.getWindowHandles());
+		  driver.switchTo().window(tabs1.get(0));
+		driver.findElement(payNL).click();
+		driver.findElement(amnt).sendKeys("1020");
+		driver.findElement(phn).sendKeys("7639552000");
+		driver.findElement(em).sendKeys("valorautomati123on@gmail.com");
+		driver.findElement(custName).sendKeys("payvignesh");
+		driver.findElement(invcn).sendKeys("123456789");
+		driver.findElement(decrpt).sendKeys("paytxn");
+		driver.findElement(sendPay).click();
+		driver.findElement(By.xpath("//span[contains(text(),'Process')]")).click();
+		driver.findElement(ok).click();
+		//driver.findElement(By.xpath("//span[normalize-space()='copy link']")).click();
+		
+		
+	}
+	
+	public void paynowwithFlexible() throws Exception { 
+		driver.findElement(payNL).click();
+		driver.findElement(flex).click();
+		driver.findElement(phn).sendKeys("7639552000");
+		driver.findElement(em).sendKeys("valorautomatio123n@gmail.com");
+		driver.findElement(custName).sendKeys("payvignesh");
+		driver.findElement(invcn).sendKeys("123456789");
+		driver.findElement(decrpt).sendKeys("paytxn");
+		driver.findElement(sendPay).click();
+		driver.findElement(By.xpath("//span[contains(text(),'Process')]")).click();
+		driver.findElement(ok).click();
+		//driver.findElement(By.xpath("//span[normalize-space()='copy link']")).click();
+		}
+	public void paynowwithNeverExpire() throws Exception { 
+		driver.findElement(payNL).click();
+		driver.findElement(nVE).click();
+		driver.findElement(amnt).sendKeys("1120");
+		driver.findElement(phn).sendKeys("7639552000");
+		driver.findElement(em).sendKeys("valorautomat123ion@gmail.com");
+		driver.findElement(custName).sendKeys("payvignesh");
+		driver.findElement(invcn).sendKeys("123456789");
+		driver.findElement(decrpt).sendKeys("paytxn");
+		driver.findElement(sendPay).click();
+		driver.findElement(By.xpath("//span[contains(text(),'Process')]")).click();
+		driver.findElement(ok).click();
+		//driver.findElement(By.xpath("//span[normalize-space()='copy link']")).click();
+		
+	}
+	
+	public void paynowBothFlexandNever() throws Exception { 
+		driver.findElement(payNL).click();
+		driver.findElement(flex).click();
+		driver.findElement(nVE).click();
+		driver.findElement(phn).sendKeys("7639552000");
+		driver.findElement(em).sendKeys("valorautomati123on@gmail.com");
+		driver.findElement(custName).sendKeys("payvignesh");
+		driver.findElement(invcn).sendKeys("123456789");
+		driver.findElement(decrpt).sendKeys("paytxnFNE");
+		driver.findElement(sendPay).click();
+		driver.findElement(By.xpath("//span[contains(text(),'Process')]")).click();
+		driver.findElement(ok).click();
+		
+		
+		}
+	public void valorLiteQR() throws Exception { 
+		driver.findElement(vLQ).click();
+		driver.findElement(lab).sendKeys("7639552000");
+		driver.findElement(decrpt).sendKeys("paytxnVQ");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//span[normalize-space()='Generate QR']")).click();
+		driver.findElement(ok).click();
+		//driver.findElement(By.xpath("//span[normalize-space()='copy link']")).click();
+		//driver.findElement(print).click();
+	}
+	
+	public void manageEinvoice() throws Exception {
+		driver.findElement(manage).click();
+		driver.findElement(Einvoice).click();
+		 Actions a = new Actions(driver);
+		  WebElement IDcopy =driver.findElement(By.xpath("//span[normalize-space()='Id : 33010']//i[@title='copy to clip']"));
+		  IDcopy.click();  
+		  WebElement IDPast =driver.findElement(Search);
+		  a.moveToElement(IDPast).click().keyDown(Keys.CONTROL).sendKeys("v");
+		  a.keyUp(Keys.CONTROL).build().perform();
+		//driver.findElement(Threedot).click();
+			// List<WebElement>filter = driver.findElements(By.xpath("//ul[@role='menu']/li"));
+			//  filter.get(0).click();
 		  
+	}	  
+		  
+		  
+		
+			
+			  
+			 
+			  
+			 
+			  
+			  
+		 
+	
+	
+	public void transactionsfilteringoptinclick() throws InterruptedException {
+
+        Thread.sleep(3000);
+
+        driver.findElement(muifilter).click();
+        driver.findElement(Datefilter).click();
+
+        List<WebElement> fil = driver.findElements(By.xpath("//ul[@role='menu']/li"));
+
+       
+
+        for (WebElement ftyp : fil) {
+
+              if (ftyp.getText().equals("Today")) {
+
+                    ftyp.click();
+
+                    break;
+
+              }
+
+
+
+        }
+
+
+	}
+	
+	
+	
+	public void statusfilteringoptinclick() throws InterruptedException {
+
+        Thread.sleep(3000);
+
+        driver.findElement(Status).click();
+        
+
+        List<WebElement> fil = driver.findElements(By.xpath("//ul[@role='menu']/li"));
+
+       
+
+        for (WebElement ftyp : fil) {
+
+              if (ftyp.getText().equals("PAID")) {
+
+                    ftyp.click();
+
+                    break;
+
+              }
+
+
+
+        }
+
+
+	}
+	
+	
+	
+	public void IDFilteringOptinclick() throws InterruptedException {
+
+        Thread.sleep(3000);
+
+        driver.findElement(By.xpath("//button[@name='Free_Select']")).click();
+        
+
+        List<WebElement> fil = driver.findElements(By.xpath("//ul[@role='menu']/li"));
+
+       
+
+        for (WebElement ftyp : fil) {
+
+              if (ftyp.getText().equals("Email")) {
+
+                    ftyp.click();
+
+                    break;
+
+              }
+
+
+
+        }
+
+
+	}
+	
+	public void srchClick() {
+		driver.findElement(By.xpath("//div[@role='presentation']//button[3]")).click();
+	}
+	
+	
+	
+	
+	
+	
+	
+	public void manageRecurringBilling() throws Exception {
+		driver.findElement(manage).click();
+		driver.findElement(recurringbill).click();
+		Actions a = new Actions(driver);
+		  WebElement IDcopyrecurring =driver.findElement(By.xpath("//span[normalize-space()='Id : 33010']//i[@title='copy to clip']"));
+		  IDcopyrecurring.click();  
+		  WebElement IDPastrecurring =driver.findElement(Search);
+		  a.moveToElement(IDPastrecurring).click().keyDown(Keys.CONTROL).sendKeys("v");
+		  a.keyUp(Keys.CONTROL).build().perform();
+   		driver.findElement(Threedot).click();
+			 List<WebElement>filter = driver.findElements(By.xpath("//ul[@role='menu']/li"));
+			  filter.get(0).click();
+	}
+	
+	
+	
+		  
+	
 			  
 	public void gifttxn() throws Exception { 
-		 ArrayList<String> tabs1 = new ArrayList<String>(driver.getWindowHandles());
-		  driver.switchTo().window(tabs1.get(0));
+		driver.findElement(By.xpath("//*[@id=\"app-site\"]/div/div[1]/div[2]/div/div/div[2]/div[1]/ul/li[4]/a")).click();
+		driver.findElement(epitype).click();
+		List<WebElement> terminal = driver.findElements(By.xpath("//ul[@role='menu']/li"));
+	    System.out.println("this size is"+terminal.size());
+	     terminal.get(2).click();
+		// ArrayList<String> tabs1 = new ArrayList<String>(driver.getWindowHandles());
+		 // driver.switchTo().window(tabs1.get(0));
 		  driver.findElement(By.xpath("//input[@value='4']")).click();
 		  driver.findElement(By.xpath("//div[normalize-space()='SALE']")).click();
 		  Thread.sleep(3000);
@@ -368,7 +642,8 @@ public class VirtualTerminalPage {
 		  driver.findElement(em).sendKeys("valorauto123mation@gmail.com");
 		  driver.findElement(By.name("cardNo")).sendKeys("7108330000122158319");
 		  driver.findElement(By.name("pin")).sendKeys("18500305");
-		  driver.findElement(By.xpath("//div[@class='MuiGrid-root saveButtonVoid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-12']//span[@class='MuiButton-label']")).click();
+		  Thread.sleep(3000);
+		  driver.findElement(By.xpath("//body/div[@id='app-site']/div/div/div/main/div/div/div/div/div/div/div[@data-testid='wrapper']/div/div/div/div/div[@data-testid='wrapper']/div[4]")).click();
 		 // driver.findElement(By.xpath("//div[@class='MuiGrid-root saveButtonVoid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-12']")).click();
 		  driver.findElement(By.xpath("//span[contains(text(),'Process')]")).click();
 		  
