@@ -33,7 +33,7 @@ public class MerchantManagementStepDefination {
 		List<Map<String, String>> credList = credTable.asMaps();
 		String userName = credList.get(0).get("username");
 		String password = credList.get(0).get("password");
-		DriverFactory.getDriver().get("https://demo.valorpaytech.com/signin");
+		DriverFactory.getDriver().get("https://uat.valorpaytech.com/signin");
 		homePage = loginPage.doLogin(userName, password);
 		merchantmanagementpage = homePage.merchantclick();
 

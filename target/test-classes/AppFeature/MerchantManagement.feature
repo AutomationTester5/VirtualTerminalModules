@@ -3,7 +3,7 @@ Feature: Boarding the Merchant Management Feature
 Background: 
 	Given user is on MerchantManagementPage 
 		|username|password|
-		|vigneshradhakrishnan76+dtysys@gmail.com|Valor123|
+		|vigneshradhakrishnan76+piniso@gmail.com|Valor123|
 		
 Scenario Outline: Boarding Merchant Managemen with different set of data 
 	When click to the button 

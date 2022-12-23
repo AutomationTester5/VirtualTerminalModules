@@ -17,6 +17,9 @@ Scenario Outline:Boarding virtual terminal with different set of transaction Sal
   When click to refund transaction
    When click to the einvoice transaction with paynow link,valor lite QR,flexsible,never expiry
   And click to the cash
+  When sale with recurring billing transaction given to the billing address
+  
+  
   
   
   

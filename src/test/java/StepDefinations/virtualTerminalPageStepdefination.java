@@ -139,6 +139,21 @@ public class virtualTerminalPageStepdefination {
 	
 		
 		
+		@When("sale with recurring billing transaction given to the billing address")
+		public void sale_with_recurring_billing_transaction_given_to_the_billing_address() throws InterruptedException {
+			virtualterminalpage.saleWithRecurringBillingTxn();
+			virtualterminalpage.RecurringDateChangeTxn();
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		}
+
 		
 	
 	

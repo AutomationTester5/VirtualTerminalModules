@@ -49,6 +49,7 @@ public class VirtualTerminalPage {
 	
 	
 	private By epitype =  By.xpath("//span[@class='MuiButton-label']//div");
+	private By sale = By.xpath("//input[@value='0']");
 	private By amnt = By.name("amount");
 	private By cdnumber = By.xpath("//input[@placeholder='Card number*']");
 	private By cvv = By.xpath("//*[@id=\"app-site\"]/div/div[1]/div[3]/main/div/div[1]/div/div/div/div/div/div/div[2]/div/div[3]/div/div/div/form/div[1]/div[2]/input");
@@ -66,6 +67,30 @@ public class VirtualTerminalPage {
 	private By ed = By.id("identifierId");
 	private By ps = By.name("Passwd");
 	
+	//Sale with Recurring
+	private By saleRecurringBill = By.xpath("//span[@title='Enable']//input[@type='checkbox']");
+	private By subscriptionButton = By.xpath("//body/div/div/div/div/main/div/div/div/div/div/div/div[@data-testid='wrapper']/div/div/div/div/div/div/div/div/div[@role='region']/div/div/div/div[@aria-label='transaction']/div/label[1]/span[1]/span[1]");
+	private By insatallment = By.xpath("//body/div[@id='app-site']/div[@class='app-main']/div[@class='app-container fixed-drawer']/div[@class='app-main-container']/main[@class='app-main-content-wrapper']/div[@class='app-main-content']/div[@class='app-wrapper']/div/div[@class='col-12']/div[contains(@class,'jr-card')]/div[contains(@class,'jr-card-body')]/div[@class='_loading_overlay_wrapper css-79elbk']/div/div/div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3']/div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-12']/div[@class='MuiPaper-root MuiExpansionPanel-root Mui-expanded MuiExpansionPanel-rounded MuiPaper-elevation1 MuiPaper-rounded']/div[@class='MuiCollapse-container MuiCollapse-entered']/div[@class='MuiCollapse-wrapper']/div[@class='MuiCollapse-wrapperInner']/div[@id='panel1a-content']/div[@class='MuiExpansionPanelDetails-root']/div/div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-4']/div[@aria-label='transaction']/div/label[1]/span[1]");
+	private By weekly = By.xpath("//div[@class='MuiGrid-root MuiGrid-container']//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-4']//div[@aria-label='transaction']//div//span[@class='MuiButtonBase-root MuiIconButton-root jss34 MuiRadio-root MuiRadio-colorSecondary jss35 Mui-checked MuiIconButton-colorSecondary']");
+	private By BiWeekly = By.xpath("//div[@class='MuiGrid-root MuiGrid-container']//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-4']//div[@aria-label='transaction']//div//span[@class='MuiButtonBase-root MuiIconButton-root jss34 MuiRadio-root MuiRadio-colorSecondary jss35 Mui-checked MuiIconButton-colorSecondary']");
+	private By monthly = By.xpath("//div[@class='MuiGrid-root MuiGrid-container']//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-4']//div[@aria-label='transaction']//div//span[@class='MuiButtonBase-root MuiIconButton-root jss34 MuiRadio-root MuiRadio-colorSecondary jss35 Mui-checked MuiIconButton-colorSecondary']");
+	private By numberOfInstallment = By.xpath("//div[@class='MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl']");
+	private By dayOfEveryMonth = By.xpath("//div[contains(text(),'21st')]");
+	private By recurringBillingStartsFrom = By.id("date-picker-inline");
+	//.set shipping as billing address
+	private By setShipping = By.xpath("//div[@id='panel1a-content']//div//input[@type='checkbox']");
+	private By customerNameBilling = By.name("customerName");
+	private By streetNoBilling = By.name("streetNo");
+	private By streetNameBilling = By.name("streetName");
+	private By unitBilling = By.name("streetUnit");
+	private By zipBilling = By.name("zipCode");
+	private By cityBilling = By.name("city");
+	private By stateBilling = By.name("state");
+	private By valid = By.xpath("//span[contains(text(),'Validate & Save')]");
+	private By billingProcess = By.xpath("//span[normalize-space()='Process']");
+	
+	
+	
 	private By cmo = By.xpath("//span[@class='y2']");
 	//private By cmo = By.xpath("//tr[@class='zA zE x7']//span[@class='y2']");
 	private By aprs=By.xpath("//span[contains(text(),'Proceed')]");
@@ -82,10 +107,13 @@ public class VirtualTerminalPage {
 	private By vLQ =By.xpath("//span[@title='Valor QR']//input[@type='checkbox']");
 	private By lab =By.name("label");
 	private By decrpt =By.xpath("//input[contains(@name,'description')]");
-	//private By genrt = By.name("//span[normalize-space()='Generate QR']");
+	
 	private By ok  = By.xpath("//span[contains(text(),'OK')]");
 	private By coplink = By.xpath("//span[normalize-space()='copy link']");
 	private By print = By.xpath("//span[normalize-space()='Print']");
+	
+	//Generate QR
+	private By genrt = By.name("//span[normalize-space()='Generate QR']");
 	
 	//MANGE:
 	private By manage = By.xpath("//span[contains(@class,'MuiButton-label')]//span[contains(text(),'Manage')]");
@@ -466,7 +494,7 @@ public class VirtualTerminalPage {
 		driver.findElement(manage).click();
 		driver.findElement(Einvoice).click();
 		 Actions a = new Actions(driver);
-		  WebElement IDcopy =driver.findElement(By.xpath("//span[normalize-space()='Id : 33010']//i[@title='copy to clip']"));
+		  WebElement IDcopy =driver.findElement(By.xpath("//*[@id=\"app-site\"]/div/div[1]/div[3]/main/div/div[1]/div/div/div/div[2]/div/div/div[5]/div/div/div[2]/div/div/div[1]/div/div[1]/h3/span/i"));
 		  IDcopy.click();  
 		  WebElement IDPast =driver.findElement(Search);
 		  a.moveToElement(IDPast).click().keyDown(Keys.CONTROL).sendKeys("v");
@@ -723,13 +751,57 @@ public class VirtualTerminalPage {
 			driver.findElement(em).sendKeys("Vigneshwa11ran@valorpaytech.com");
 			 driver.findElement(By.xpath("//span[normalize-space()='Process $']")).click();
 			 driver.findElement(By.xpath("//span[contains(text(),'OK')]")).click();
-			  
-				
+		 }
+		   
+		 public void saleWithRecurringBillingTxn() throws InterruptedException {	
+			 
+			 
+			    driver.findElement(sale).click();
+				driver.findElement(amnt).sendKeys("5821");
+				driver.findElement(phn).sendKeys("7639552000");
+				driver.findElement(em).sendKeys("Vigneshwa11ran@valorpaytech.com");
+				driver.findElement(cdnumber).sendKeys("4111111111111111");
+				driver.findElement(cvv).sendKeys("999");	  
+			    driver.findElement(mmyy).sendKeys("12/25");
+			    driver.findElement(crdholdr).sendKeys("Vignesh");
+			    driver.findElement(recurringbill).click();
+			   // driver.findElement(setShipping).click();
+				 driver.findElement(customerNameBilling).sendKeys("VigneshRecurringAmount");
+				 driver.findElement(streetNoBilling).sendKeys("637502");
+				 driver.findElement(streetNameBilling).sendKeys("Starcity");
+				 driver.findElement(unitBilling).sendKeys("05-45");
+				 driver.findElement(zipBilling).sendKeys("10018");
+				// driver.findElement(cityBilling).sendKeys("NEW YORK");
+				// driver.findElement(stateBilling).sendKeys("GA - Georgia");
+				// List<WebElement>filter = driver.findElements(By.xpath("//ul[@role='menu']/li"));
+				//  filter.get(0).click();
+				 driver.findElement(valid).click();
+				 driver.findElement(billingProcess).click();
+				 Thread.sleep(40000);
+				 driver.findElement(By.xpath("//*[@id=\"body\"]/div[2]/div[3]/div/div[3]/button")).click();
+				 
+				 
+				 
+				 
+		 }
 		 
-		 
+		 public void RecurringDateChangeTxn() throws InterruptedException {	
+			 
+			 driver.findElement(By.xpath("//button[@aria-label='change date']//span[1]")).click();
+			 driver.findElement(By.xpath("//div[@role='presentation']//button[2]//span[1]")).click();
+			 driver.findElement(By.xpath("//p[normalize-space()='19']")).click();
+			 
+			 
+			 
+		 }
+			 
+			
+			 
+			 
+			
+		
 		 
 		 		 
-		  }
 		 
 
 

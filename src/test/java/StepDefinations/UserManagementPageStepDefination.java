@@ -23,6 +23,7 @@ import com.qa.util.ExcelReader;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 
@@ -40,7 +41,7 @@ public class UserManagementPageStepDefination {
         String userName = credList.get(0).get("username");
         String password = credList.get(0).get("password");
          DriverFactory.getDriver()
-         .get("https://demo.valorpaytech.com/signin");
+         .get("https://uat.valorpaytech.com/signin");
          homePage = loginPage.doLogin(userName, password);
          usermanagementPage =homePage.umclick();
         
@@ -136,6 +137,24 @@ public void user_select_all_the_modules() {
         
      
     
+
+@Then("activation on that iso in email")
+public void activation_on_that_iso_in_email() throws InterruptedException {
+	
+	usermanagementPage.activationISO();
+	usermanagementPage.AddUser();
+	
+	
+	
+	
+	
+	
+	
+	
+    
+}
+
+
 
 
 

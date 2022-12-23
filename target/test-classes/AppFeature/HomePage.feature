@@ -4,7 +4,7 @@
 	Background:
 	Given user has already logged in to application
 	|username|password|
-	|vigneshradha111krishnan76+demovalorpaytech@gmail.com|Valor123|
+	|vigneshwaran@valorpaytech.com|Valor123|
 
 
 	Scenario: user logged in to Home page
