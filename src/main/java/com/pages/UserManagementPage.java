@@ -6,8 +6,10 @@ import java.util.ArrayList;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.Select;
@@ -86,21 +88,20 @@ public class UserManagementPage {
 
 
 
-   public void createISO(String custname, String mail, String username, String phone, String firstname,
-            String lastname, String add, String zip, String cit) throws InterruptedException {
+   public void createISO() throws InterruptedException {
 
 
 
        Thread.sleep(3000);
-        driver.findElement(custName).sendKeys(custname);
-        driver.findElement(email).sendKeys(mail);
-        driver.findElement(UserName).sendKeys(username);
-        driver.findElement(Phone).sendKeys(phone);
-        driver.findElement(firstName).sendKeys(firstname);
-        driver.findElement(lastName).sendKeys(lastname);
-        driver.findElement(address).sendKeys(add);
-        driver.findElement(zipCode).sendKeys(zip);
-        driver.findElement(city).sendKeys(cit);
+        driver.findElement(custName).sendKeys("Automation");
+        driver.findElement(email).sendKeys("valorautomation+fullcreadential@gmail.com");
+        driver.findElement(UserName).sendKeys("vigneshwaransanityiso51");
+        driver.findElement(Phone).sendKeys("7639552076");
+        driver.findElement(firstName).sendKeys("Automation");
+        driver.findElement(lastName).sendKeys("shop");
+        driver.findElement(address).sendKeys("salem");
+        driver.findElement(zipCode).sendKeys("10018");
+        driver.findElement(city).sendKeys("newyork");
         /*
          * Select select = new Select(driver.findElement(state));
          * select.selectByValue("XX - India");
@@ -121,25 +122,28 @@ public class UserManagementPage {
 
 
 
-   public void Processordetails(String BinNumber, String AgentBankNo, String AgentCode, String ChainNumber,
-            String Label, String DebitSharing, String AbaNumber) {
+   public void Processordetails() {
 
 
 
-       driver.findElement(bin).sendKeys(BinNumber);
-        driver.findElement(agent).sendKeys(AgentBankNo);
-        driver.findElement(agentcode).sendKeys(AgentCode);
-        driver.findElement(addagentcode).click();
-        driver.findElement(chainNumber).sendKeys(ChainNumber);
-        driver.findElement(label).sendKeys(Label);
-        driver.findElement(debitsharing).sendKeys(DebitSharing);
-        driver.findElement(abaNumber).sendKeys(AbaNumber);
-//To click add button on processor info
-        driver.findElement(addBin).click();
+       driver.findElement(bin).sendKeys("999991");
+       driver.findElement(addBin).click();
+        driver.findElement(agent).sendKeys("000000");
         driver.findElement(addagent).click();
+        driver.findElement(agentcode).sendKeys("0001");
         driver.findElement(addagentcode).click();
+        driver.findElement(chainNumber).sendKeys("111111");
         driver.findElement(addchainnumber).click();
+        driver.findElement(label).sendKeys("Tsys");
+        driver.findElement(debitsharing).sendKeys("8GWHLSK");
+        driver.findElement(abaNumber).sendKeys("021000021");
         driver.findElement(addaba).click();
+//To click add button on processor info
+        
+       
+       // driver.findElement(addagentcode).click();
+       
+       
         driver.findElement(nextBtn).click();
         
         
@@ -200,7 +204,7 @@ public void activationISO() throws InterruptedException {
 	  driver.findElement(By.id("passwordtype")).sendKeys("Valor123");
 	  driver.findElement(continueButton).click();
 	  //driver.findElement(loginButton).click();
-	  System.out.println("SUCESSFULLY BORDING FOR ISO "+ " "+getEML);
+	  System.out.println("SUCESSFULLY BORDING FOR  "+ " "+getEML);
 	  
 	  
 	    
@@ -213,7 +217,7 @@ public void AddUser() throws InterruptedException {
 	driver.findElement(userMgtadd).click();
 	driver.findElement(By.xpath("//span[normalize-space()='Add USER']")).click();
 	 driver.findElement(email).sendKeys("valorautomation+addU@gmail.com");
-     driver.findElement(UserName).sendKeys("Autoaddboard");
+     driver.findElement(UserName).sendKeys("Autotues15");
      driver.findElement(Phone).sendKeys("7655441254");
      driver.findElement(firstName).sendKeys("USERVIGNESH");
      driver.findElement(lastName).sendKeys("WARAN");
@@ -224,7 +228,7 @@ public void AddUser() throws InterruptedException {
    //  driver.get("https://accounts.google.com/");
      
      ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-     driver.switchTo().window(tabs.get(1));
+     driver.switchTo().window(tabs.get(3));
      
       driver.get("https://mail.google.com/mail/u/0/#inbox");
       for(int i = 0; i<20; i++) {
@@ -243,10 +247,10 @@ public void AddUser() throws InterruptedException {
   		String ADU2=ADU1.getAttribute("innerHTML");
   		System.out.println(ADU2);
   	    driver.findElement(activate).click();
-  	    //ArrayList<String> tabs1 = new ArrayList<String>(driver.getWindowHandles());
-  		//  driver.switchTo().window(tabs1.get(2));
-  		  Thread.sleep(3000);
-  		  driver.findElement(By.xpath("//div[@class='app-login-main-content']//div[1]//div[1]//input[1]")).sendKeys("Valor123");
+  	    ArrayList<String> tabs1 = new ArrayList<String>(driver.getWindowHandles());
+  		 driver.switchTo().window(tabs1.get(4));
+  		  Thread.sleep(6000);
+  		  driver.findElement(By.xpath("(//input[@type='password'])[1]")).sendKeys("Valor123");
   		  driver.findElement(By.xpath("(//input[@type='password'])[2]")).sendKeys("Valor123");
   		  driver.findElement(By.xpath("//button[@type='sumbit']")).click();
   		 // ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
@@ -258,21 +262,11 @@ public void AddUser() throws InterruptedException {
   	  driver.findElement(By.id("passwordtype")).sendKeys("Valor123");
   	  driver.findElement(continueButton).click();
   	  //driver.findElement(loginButton).click();
-  	  System.out.println("SUCESSFULLY BORDING FOR ADDUSER "+ " "+ADU2);
+  	  System.out.println("SUCESSFULLY BORDING For "+ " "+ADU2);
   	  
-	
-	
-	
-	
-	
-	
+  	 // driver.findElement(By.xpath("(//button[contains(@type,'button')])[6]")).click(); 
+ 	 // driver.findElement(By.xpath("//span[contains(text(),'Logout')]")).click();
+  	  
 }
-
-
-
-
-
-
-
 
 }

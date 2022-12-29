@@ -46,6 +46,12 @@ public class HomePage {
 	    
 	    }
 	        
+	    public SubisoCreatePage sbclick() throws InterruptedException {
+	    	Thread.sleep(3000);
+	        driver.findElement(userMgtclick).click();
+	        return new SubisoCreatePage(driver);
+	        
+	    }
 	    
 	    
 

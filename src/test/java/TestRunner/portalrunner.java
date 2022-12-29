@@ -12,8 +12,8 @@ plugin= {"pretty",
 
         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 
-}
-		
+},
+	tags= "@helo1"
 
 
 
