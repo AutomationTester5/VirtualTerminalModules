@@ -95,7 +95,7 @@ public class UserManagementPage {
        Thread.sleep(3000);
         driver.findElement(custName).sendKeys("Automation");
         driver.findElement(email).sendKeys("valorautomation+fullcreadential@gmail.com");
-        driver.findElement(UserName).sendKeys("vigneshwaransanityiso51");
+        driver.findElement(UserName).sendKeys("SucssISO");
         driver.findElement(Phone).sendKeys("7639552076");
         driver.findElement(firstName).sendKeys("Automation");
         driver.findElement(lastName).sendKeys("shop");
@@ -217,7 +217,7 @@ public void AddUser() throws InterruptedException {
 	driver.findElement(userMgtadd).click();
 	driver.findElement(By.xpath("//span[normalize-space()='Add USER']")).click();
 	 driver.findElement(email).sendKeys("valorautomation+addU@gmail.com");
-     driver.findElement(UserName).sendKeys("Autotues15");
+     driver.findElement(UserName).sendKeys("SucssAdminuser1");
      driver.findElement(Phone).sendKeys("7655441254");
      driver.findElement(firstName).sendKeys("USERVIGNESH");
      driver.findElement(lastName).sendKeys("WARAN");
@@ -268,5 +268,6 @@ public void AddUser() throws InterruptedException {
  	 // driver.findElement(By.xpath("//span[contains(text(),'Logout')]")).click();
   	  
 }
+
 
 }

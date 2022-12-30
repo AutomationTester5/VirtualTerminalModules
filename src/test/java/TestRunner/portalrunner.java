@@ -7,13 +7,13 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features= {"src/test/resources/AppFeature"},glue= {"StepDefinations", "AppHooks"},
-dryRun=true,
+//dryRun=true,
 plugin= {"pretty",
 
         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 
 },
-	tags= "@helo1"
+	tags= "@Createdioss"
 
 
 
