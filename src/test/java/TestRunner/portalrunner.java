@@ -13,7 +13,7 @@ plugin= {"pretty",
         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 
 },
-	tags= "@Createdioss"
+	tags= "@hierarchy"
 
 
 

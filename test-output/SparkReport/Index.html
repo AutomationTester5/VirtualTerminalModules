@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Grasshopper Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Dec 30, 2022 04:10:50 pm</span></a>
+<a href="#"><span class="badge badge-primary">Jan 2, 2023 05:55:15 pm</span></a>
 </li>
 </ul>
 </div>
@@ -66,13 +66,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Dec 30, 2022 04:10:50 pm</h3>
+<h3>Jan 2, 2023 05:55:15 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Dec 30, 2022 04:15:10 pm</h3>
+<h3>Jan 2, 2023 05:55:43 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -143,7 +143,7 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>5</b> steps passed</small></div>
+<div><small data-tooltip='100%'><b>2</b> steps passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> steps failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
@@ -162,7 +162,7 @@
 </div></div>
 <script>
 var timeline = {
-"Boarding the SubISO Feature":258.802
+"Operator Boarding from merchant login":26.59
 };
 </script>
 <div class="row">
@@ -172,7 +172,7 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
-<td>@Createdioss</td>
+<td>@hierarchy</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
@@ -225,7 +225,7 @@ warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 5,
+passGrandChild: 2,
 failGrandChild: 0,
 warningGrandChild: 0,
 skipGrandChild: 0,
@@ -250,7 +250,7 @@ eventsCount: 5,
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@Createdioss</a>
+<a class="dropdown-item" href="#">@hierarchy</a>
 </ul>
 </li>
 </ul>
@@ -261,9 +261,9 @@ eventsCount: 5,
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Boarding the SubISO Feature</p>
+            <p class="name">Operator Boarding from merchant login</p>
             <p class="text-sm">
-              <span>16:10:51 pm</span> / <span>00:04:18:802</span>
+              <span>17:55:16 pm</span> / <span>00:00:26:590</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -271,10 +271,10 @@ eventsCount: 5,
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Boarding the SubISO Feature</h5>
-<span class='badge badge-success'>12.30.2022 16:10:51</span>
-<span class='badge badge-danger'>12.30.2022 16:15:10</span>
-<span class='badge badge-default'>00:04:18:802</span>
+<h5 class="test-status text-pass">Operator Boarding from merchant login</h5>
+<span class='badge badge-success'>01.02.2023 17:55:16</span>
+<span class='badge badge-danger'>01.02.2023 17:55:43</span>
+<span class='badge badge-default'>00:00:26:590</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 </div>
 <div class="m-t-10 m-l-5"></div>
@@ -284,35 +284,20 @@ eventsCount: 5,
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Creadential testing</div>
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Check the hierarchy</div>
       </div>
     </div>
         <div class="collapse">
           <div class="card-body">
-              <div class="step pass-bg" title="StepDefinations.SubIsoCreatePageStepdefination.user_is_on_subiso_create_page(io.cucumber.datatable.DataTable)">
-                <span>Given user is on SubisoCreatePage</span>
-      <div><table class='markup-table table '><tr><td>username</td><td>password</td></tr><tr><td>vigneshwaransanityiso51</td><td>Valor123</td></tr></table>
+              <div class="step pass-bg" title="StepDefinations.OperatorFromMerchantLoginStepdefination.user_is_on_operator_from_merchant_login_page(io.cucumber.datatable.DataTable)">
+                <span>Given user is on OperatorFromMerchantLoginPage</span>
+      <div><table class='markup-table table '><tr><td>username</td><td>password</td></tr><tr><td>vigneshradhakrishnan76+taxmerchant@gmail.com</td><td>Valor123</td></tr></table>
       </div>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="StepDefinations.SubIsoCreatePageStepdefination.create_iso_user()">
-                <span>When Create ISO User</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="StepDefinations.SubIsoCreatePageStepdefination.create_sub_iso()">
-                <span>When Create SubIso</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="StepDefinations.SubIsoCreatePageStepdefination.create_the_subiso_user_with_data()">
-                <span>When create the subiso user with data</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="StepDefinations.SubIsoCreatePageStepdefination.delete_sub_iso_and_delete_sub_iso_user()">
-                <span>And Delete Sub Iso and Delete Sub Iso User</span>
+              <div class="step pass-bg" title="StepDefinations.OperatorFromMerchantLoginStepdefination.verify_office_hierarchy()">
+                <span>And Verify office hierarchy</span>
       <div>
       </div>
               </div>
@@ -344,12 +329,12 @@ eventsCount: 5,
 <span class="meta">
 <span class='badge log pass-bg'>1</span>
 </span>
-<p class="name">@Createdioss</p>
+<p class="name">@hierarchy</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@Createdioss</h4>
+<h4>@hierarchy</h4>
 <span status="pass" class='badge log pass-bg'>1 passed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -363,11 +348,11 @@ eventsCount: 5,
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>16:10:51 pm</td>
+<td>17:55:16 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>Creadential testing</a>
+<a href="#" class="linked" test-id='1' id='2'>Check the hierarchy</a>
 <div class="">
-<span class="badge badge-default">Boarding the SubISO Feature.Creadential testing</span>
+<span class="badge badge-default">Operator Boarding from merchant login.Check the hierarchy</span>
 </div>
 </td>
 </tr>

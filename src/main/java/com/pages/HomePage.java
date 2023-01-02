@@ -53,7 +53,12 @@ public class HomePage {
 	        
 	    }
 	    
-	    
+	    public OperatorFromMerchantLoginPage OPclick() throws InterruptedException {
+	    	Thread.sleep(3000);
+	        driver.findElement(userMgtclick).click();
+	        return new OperatorFromMerchantLoginPage(driver);
+	        
+	    }
 
 
 
