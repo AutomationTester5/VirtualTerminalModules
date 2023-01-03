@@ -51,39 +51,16 @@ public class MerchantManagementStepDefination {
 
 	}
 
-	@When("merchant boarding contact details from given sheetname {string} and rownumber {int}")
-	public void merchant_boarding_contact_details_from_given_sheetname_and_rownumber(String SheetName,
-			Integer rowNumber) throws InterruptedException, InvalidFormatException, IOException {
-
-		ExcelReader reader = new ExcelReader();
-		List<Map<String, String>> testData = reader.getData(
-				"C:\\Users\\vigneshwaran\\Documents\\Automation testing\\Excel\\merchantsheet.xlsx", SheetName);
-
-		String dbaName = testData.get(rowNumber).get("DBA");
-
-		String legname = testData.get(rowNumber).get("LegalName");
-		String firname = testData.get(rowNumber).get("FirstName");
-		String lasname = testData.get(rowNumber).get("LastName");
-		String email = testData.get(rowNumber).get("Email");
-		String usname = testData.get(rowNumber).get("UserName");
-		String phonel = testData.get(rowNumber).get("Phon");
-		String adrss = testData.get(rowNumber).get("Address");
-		String zipco = testData.get(rowNumber).get("ZipCode");
-		String cit = testData.get(rowNumber).get("City");
-
-		merchantmanagementpage.creatmerchant(dbaName, legname, firname, lasname, email, usname, phonel, adrss, zipco,
-				cit);
+	@When("merchant boarding contact details from given sheetname")
+	public void merchant_boarding_contact_details_from_given_sheetname() throws InterruptedException {
+	    
+		merchantmanagementpage.creatmerchant();
+		
+		
+		
 
 	}
 
-	@When("User is click to the next button")
-	public void user_is_click_to_the_next_button() throws InterruptedException {
-
-		merchantmanagementpage.tzone();
-
-		merchantmanagementpage.clickNextButton();
-
-	}
 
 	@When("user files the store details from given sheetname")
 	public void user_files_the_store_details_from_given_sheetname() throws InterruptedException {
@@ -107,22 +84,14 @@ public class MerchantManagementStepDefination {
 	    
 	}
 
-	@When("user files the device MIT and TID  details from given sheetname {string} and rownumber {int}")
-	public void user_files_the_device_mit_and_tid_details_from_given_sheetname_and_rownumber(String SheetName, Integer rowNumber) throws InvalidFormatException, IOException, InterruptedException  {
-		ExcelReader reader = new ExcelReader();
-		List<Map<String, String>> testData = reader.getData(
-				"C:\\Users\\vigneshwaran\\Documents\\Automation testing\\Excel\\merchantsheet.xlsx", SheetName);
-		
+	@When("user files the device MIT and TID  details from given sheetname")
+	public void user_files_the_device_mit_and_tid_details_from_given_sheetname() throws InterruptedException {
+	    
+	
 
-		String mi = testData.get(rowNumber).get("MID");
-		String vn = testData.get(rowNumber).get("Vnumber");
-		String st = testData.get(rowNumber).get("storeno");
-		String te = testData.get(rowNumber).get("TermNo");
-		String ag = testData.get(rowNumber).get("AgentBankNumber");
-		String ch = testData.get(rowNumber).get("chain");
-		String age = testData.get(rowNumber).get("Agent");
 		
-		merchantmanagementpage.tsysdata(mi, vn, st, te, ag, ch, age);
+		
+		merchantmanagementpage.tsysdata();
 	}
 	
 
@@ -133,10 +102,34 @@ public class MerchantManagementStepDefination {
 
 	}
 
-	@When("user is select to all the modules")
-	public void user_is_select_to_all_the_modules() {
-
+	@When("user is activation merchant")
+	public void user_is_activation_merchant() throws InterruptedException {
+	   
+		merchantmanagementpage.activationMerchant();
+		
+		
+		
 	}
+	
+	@When("Boarding the merchant quick board")
+	public void boarding_the_merchant_quick_board() throws InterruptedException {
+	
+		merchantmanagementpage.quickBrd();
+		merchantmanagementpage.quickDevice();
+		merchantmanagementpage.quickBrdActivation();
+		merchantmanagementpage.quickm2();
+		merchantmanagementpage.quickprocessor();
+		merchantmanagementpage.quickCashDiscountSurcharge();
+		merchantmanagementpage.activationMerchant();
+		
+		
+		
+		
+		
+	}
+
+	
+	
 	
 
 }
