@@ -12,6 +12,7 @@ Feature: Portal HomePage Feature
 	When user is on boarded a Admin user
 	When user is on boarded in a userlevel ISO
 	
+	@OMAHA
 	Scenario: Admin FDR OMAHA(F/B)
 	When user is to boarded a Iso
 	When user is to boarded a Admin user
