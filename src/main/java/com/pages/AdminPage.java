@@ -82,18 +82,20 @@ public class AdminPage {
 		driver.findElement(umaddCust).click();
 	}
 
-	public void createISO() throws InterruptedException {
+	public void createISO(String custname, String mail, String username, String phone, String firstname,
+			String lastname, String add, String zip, String cit) throws InterruptedException {
+
 
 		Thread.sleep(3000);
-		driver.findElement(custName).sendKeys("Automation");
-		driver.findElement(email).sendKeys("valorautomation+Admin1@gmail.com");
-		driver.findElement(UserName).sendKeys("AdminlevelIso11");
-		driver.findElement(Phone).sendKeys("7639552076");
-		driver.findElement(firstName).sendKeys("Automation");
-		driver.findElement(lastName).sendKeys("shop");
-		driver.findElement(address).sendKeys("salem");
-		driver.findElement(zipCode).sendKeys("10018");
-		driver.findElement(city).sendKeys("newyork");
+		driver.findElement(custName).sendKeys(custname);
+		driver.findElement(email).sendKeys(mail);
+		driver.findElement(UserName).sendKeys(username);
+		driver.findElement(Phone).sendKeys(phone);
+		driver.findElement(firstName).sendKeys(firstname);
+		driver.findElement(lastName).sendKeys(lastname);
+		driver.findElement(address).sendKeys(add);
+		driver.findElement(zipCode).sendKeys(zip);
+		driver.findElement(city).sendKeys(cit);
 		/*
 		 * Select select = new Select(driver.findElement(state));
 		 * select.selectByValue("XX - India");
@@ -121,19 +123,20 @@ public class AdminPage {
 
 	}
 
-	public void Processordetails() {
+	public void Processordetails(String BinNumber, String AgentBankNo, String AgentCode, String ChainNumber,
+			String Label, String DebitSharing, String AbaNumber) {
 
-		driver.findElement(bin).sendKeys("999991");
+		driver.findElement(bin).sendKeys(BinNumber);
 		driver.findElement(addBin).click();
-		driver.findElement(agent).sendKeys("000000");
+		driver.findElement(agent).sendKeys(AgentBankNo);
 		driver.findElement(addagent).click();
-		driver.findElement(agentcode).sendKeys("0001");
+		driver.findElement(agentcode).sendKeys(AgentCode);
 		driver.findElement(addagentcode).click();
-		driver.findElement(chainNumber).sendKeys("111111");
+		driver.findElement(chainNumber).sendKeys(ChainNumber);
 		driver.findElement(addchainnumber).click();
-		driver.findElement(label).sendKeys("Tsys");
-		driver.findElement(debitsharing).sendKeys("8GWHLSK");
-		driver.findElement(abaNumber).sendKeys("021000021");
+		driver.findElement(label).sendKeys(Label);
+		driver.findElement(debitsharing).sendKeys(DebitSharing);
+		driver.findElement(abaNumber).sendKeys(AbaNumber);
 		driver.findElement(addaba).click();
 		// To click add button on processor info
 
@@ -224,13 +227,21 @@ public class AdminPage {
 		List<WebElement> AdminBoardingType = driver.findElements(By.xpath("(//ul[@role='menu'])[1]/li"));
 		System.out.println("Successfully clicked for AdminUser" + AdminBoardingType.size());
 		AdminBoardingType.get(1).click();
-		driver.findElement(email).sendKeys("valorautomation+aminuser@gmail.com");
-		driver.findElement(UserName).sendKeys("Adminleveluser11");
-		driver.findElement(Phone).sendKeys("7655441254");
-		driver.findElement(firstName).sendKeys("USERVIGNESH");
-		driver.findElement(lastName).sendKeys("WARAN");
+	}
+	public void AddUserDetail(String AddUserEmail, String AddUserName, String AddUserMobileNumber, String AddUserFirstName,
+			String AddUserLastName) throws InterruptedException {
+		
+		driver.findElement(email).sendKeys(AddUserEmail);
+		driver.findElement(UserName).sendKeys(AddUserName);
+		driver.findElement(Phone).sendKeys(AddUserMobileNumber);
+		driver.findElement(firstName).sendKeys(AddUserFirstName);
+		driver.findElement(lastName).sendKeys(AddUserLastName);
 		driver.findElement(nextBtn).click();
 		driver.findElement(submitbutton).click();
+	}
+	public void AddUserActivation() throws InterruptedException {
+		
+	
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.open()");
 		// driver.get("https://accounts.google.com/");
@@ -291,24 +302,65 @@ public class AdminPage {
 
 	}
 
-	public void userLevelISO2() throws InterruptedException {
+	public void userLevelISO2(String custname2, String UserLevelMail, String UserLevelname, String UserLevelphone, String UserLevelfirstname,
+			String UserLevellastname, String UserLeveladd, String UserLevelzip, String UserLevelcit) throws InterruptedException {
 
 		Thread.sleep(3000);
-		driver.findElement(custName).sendKeys("Automation");
-		driver.findElement(email).sendKeys("valorautomation+Admin1@gmail.com");
-		driver.findElement(UserName).sendKeys("UserlevelIso12");
-		driver.findElement(Phone).sendKeys("7639552076");
-		driver.findElement(firstName).sendKeys("Automation");
-		driver.findElement(lastName).sendKeys("shop");
-		driver.findElement(address).sendKeys("salem");
-		driver.findElement(zipCode).sendKeys("10018");
-		driver.findElement(city).sendKeys("newyork");
+		driver.findElement(custName).sendKeys(custname2);
+		driver.findElement(email).sendKeys(UserLevelMail);
+		driver.findElement(UserName).sendKeys(UserLevelname);
+		driver.findElement(Phone).sendKeys(UserLevelphone);
+		driver.findElement(firstName).sendKeys(UserLevelfirstname);
+		driver.findElement(lastName).sendKeys(UserLevellastname);
+		driver.findElement(address).sendKeys(UserLeveladd);
+		driver.findElement(zipCode).sendKeys(UserLevelzip);
+		driver.findElement(city).sendKeys(UserLevelcit);
 		/*
 		 * Select select = new Select(driver.findElement(state));
 		 * select.selectByValue("XX - India");
 		 */
 
 	}
+	
+	public void UserLevelProcessordetails(String BinNumber, String AgentBankNo, String AgentCode, String ChainNumber,
+			String Label, String DebitSharing, String AbaNumber) {
+		
+		driver.findElement(bin).sendKeys(BinNumber);
+		driver.findElement(addBin).click();
+		driver.findElement(agent).sendKeys(AgentBankNo);
+		driver.findElement(addagent).click();
+		driver.findElement(agentcode).sendKeys(AgentCode);
+		driver.findElement(addagentcode).click();
+		driver.findElement(chainNumber).sendKeys(ChainNumber);
+		driver.findElement(addchainnumber).click();
+		driver.findElement(label).sendKeys(Label);
+		driver.findElement(debitsharing).sendKeys(DebitSharing);
+		driver.findElement(abaNumber).sendKeys(AbaNumber);
+		driver.findElement(addaba).click();
+		// To click add button on processor info
+
+		// driver.findElement(addagentcode).click();
+
+		driver.findElement(nextBtn).click();
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 
 	public void userLevelactivationISO2() throws InterruptedException {
 
