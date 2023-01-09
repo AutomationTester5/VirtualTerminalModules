@@ -424,7 +424,14 @@ public class AdminPage {
 
 	}
 	
-	
+	public void OMAHAprocessorType() {
+
+		driver.findElement(prcssrType).click();
+		List<WebElement> PrcsrType = driver.findElements(By.xpath("(//ul[@role='menu'])[1]/li"));
+		System.out.println("Successfully clicked Processor Type" + PrcsrType.size());
+		PrcsrType.get(1).click();
+
+	}
 	
 
 	public void FDOMAHA(String Tppid, String serviceid, String Appname) throws InterruptedException {
@@ -441,6 +448,93 @@ public class AdminPage {
 	}
 
 	
+	public void CARDNETProcessorType() {
+
+		driver.findElement(prcssrType).click();
+		List<WebElement> PrcsrType = driver.findElements(By.xpath("(//ul[@role='menu'])[1]/li"));
+		System.out.println("Successfully clicked Processor Type" + PrcsrType.size());
+		PrcsrType.get(2).click();
+
+	}
+	
+	
+	
+	public void FDCARDNET(String Tppid, String serviceid, String Appname) throws InterruptedException {
+
+		driver.findElement(TPPid).sendKeys(Tppid);
+		driver.findElement(Serviceid).sendKeys(serviceid);
+		
+		driver.findElement(AppName).sendKeys(Appname);
+		
+	}
+	
+	public void BUYPASSProcessorType() {
+
+		driver.findElement(prcssrType).click();
+		List<WebElement> PrcsrType = driver.findElements(By.xpath("(//ul[@role='menu'])[1]/li"));
+		System.out.println("Successfully clicked Processor Type" + PrcsrType.size());
+		PrcsrType.get(3).click();
+
+	}
+	
+	
+	
+	public void FDBUYPASS(String Tppid, String serviceid, String Appname) throws InterruptedException {
+
+		driver.findElement(TPPid).sendKeys(Tppid);
+		driver.findElement(Serviceid).sendKeys(serviceid);
+		
+		driver.findElement(AppName).sendKeys(Appname);
+		
+	}
+		
+		
+	
+	
+
+	
+	public void NASHVILLEProcessorType() {
+
+		driver.findElement(prcssrType).click();
+		List<WebElement> PrcsrType = driver.findElements(By.xpath("(//ul[@role='menu'])[1]/li"));
+		System.out.println("Successfully clicked Processor Type" + PrcsrType.size());
+		PrcsrType.get(4).click();
+
+	}
+	
+	
+	
+	public void FDNASHVILLE(String Tppid, String serviceid, String Appname) throws InterruptedException {
+
+		driver.findElement(TPPid).sendKeys(Tppid);
+		driver.findElement(Serviceid).sendKeys(serviceid);
+		
+		driver.findElement(AppName).sendKeys(Appname);
+		
+	}
+
+	
+	
+	public void POSTILIONProcessorType() {
+
+		driver.findElement(prcssrType).click();
+		List<WebElement> PrcsrType = driver.findElements(By.xpath("(//ul[@role='menu'])[1]/li"));
+		System.out.println("Successfully clicked Processor Type" + PrcsrType.size());
+		PrcsrType.get(5).click();
+
+	}
+	
+	
+	
+	public void FDPOSTILION(String Tppid, String serviceid, String Appname) throws InterruptedException {
+
+		driver.findElement(TPPid).sendKeys(Tppid);
+		driver.findElement(Serviceid).sendKeys(serviceid);
+		
+		driver.findElement(AppName).sendKeys(Appname);
+		
+	}
+
 	
 	
 	

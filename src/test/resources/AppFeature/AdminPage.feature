@@ -67,7 +67,7 @@ Feature: Portal HomePage Feature
 	Examples: 
 	
 		|SheetName|RowNumber|
-		|FirstData|1|
+		|FDBUYPASS|0|
 		
 	@FDRNASHVILLE	
     Scenario Outline: Admin FDR NORTH / NASHVILLE
@@ -82,7 +82,7 @@ Feature: Portal HomePage Feature
 	Examples: 
 	
 		|SheetName|RowNumber|
-		|FirstData|1|
+		|FDNASHVILLE|0|
 		
 		
 	@POSTILION	
@@ -98,8 +98,8 @@ Feature: Portal HomePage Feature
 	Examples: 
 	
 		|SheetName|RowNumber|
-		|FirstData|1|
-		
+		|FDPOSTILION|0|
+		|FDPOSTILION|1|
 		
 		
 		
