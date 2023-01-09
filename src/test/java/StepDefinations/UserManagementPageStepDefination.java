@@ -119,9 +119,18 @@ public void activation_on_that_iso_in_email() throws InterruptedException {
 	
 	usermanagementPage.activationISO();
 	usermanagementPage.AddUser();
+	usermanagementPage.activationISO();
+	usermanagementPage.AddUser();
+	
 	
 }
 }
+
+
+
+
+
+
 
 
 

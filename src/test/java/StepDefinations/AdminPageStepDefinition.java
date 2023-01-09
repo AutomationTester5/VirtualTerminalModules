@@ -97,8 +97,8 @@ public void user_is_on_boarded_a_contact_information_iso_given_sheetname_and_row
 		 String label = testData.get(rowNumber).get("Label");
 		 String debitsharing = testData.get(rowNumber).get("DebitSharing");
 		 String abaNumber = testData.get(rowNumber).get("AbaNumber");
-		 adminpage.Processordetails(bin, agent, agentcode, chainNumber, label, debitsharing, abaNumber);
-		 adminpage.clickNextButton();
+		    adminpage.Processordetails(bin, agent, agentcode, chainNumber, label, debitsharing, abaNumber);
+		    adminpage.clickNextButton();
 			adminpage.clickNextButton();
 			adminpage.selectallmodule();
 			adminpage.activationISO();
@@ -170,7 +170,7 @@ public void user_is_on_boarded_a_contact_information_iso_given_sheetname_and_row
 		 String city = testData.get(rowNumber).get("UserLevelcit");
 		
 		 adminpage.userLevelISO2(custName, email, UserName, Phone, firstName, lastName, address, zipcode, city);
-		 adminpage.userLevelactivationISO2();
+		 adminpage.clickNextButton();
 		 
 	}
 	
@@ -195,8 +195,10 @@ public void user_is_on_boarded_in_a_userlevel_processor_info_iso_given_sheetname
 	 adminpage.UserLevelProcessordetails(bin, agent, agentcode, chainNumber, label, debitsharing, abaNumber);
 	 adminpage.clickNextButton();
 		adminpage.clickNextButton();
+		adminpage.clickNextButton();
 		adminpage.selectallmodule();
-		adminpage.activationISO();
+		adminpage.userLevelactivationISO2();
+		
 	
 	
 	
@@ -205,8 +207,13 @@ public void user_is_on_boarded_in_a_userlevel_processor_info_iso_given_sheetname
 }
 	
 @When("FD OMAHA processor to select the Add Customer option")
-public void fd_omaha_processor_to_select_the_add_customer_option() {
+public void fd_omaha_processor_to_select_the_add_customer_option() throws InterruptedException {
     
+	 adminpage.addISO();
+	 adminpage.addcust();
+	 
+	
+	
 }
 	
 
@@ -214,23 +221,80 @@ public void fd_omaha_processor_to_select_the_add_customer_option() {
 
 
 @When("user is boarded a Contact Information FD Iso given sheetname {string} and rownumber {int}")
-public void user_is_boarded_a_contact_information_fd_iso_given_sheetname_and_rownumber(String string, Integer int1) {
+public void user_is_boarded_a_contact_information_fd_iso_given_sheetname_and_rownumber(String SheetName, Integer rowNumber)throws InvalidFormatException, IOException, InterruptedException, org.apache.poi.openxml4j.exceptions.InvalidFormatException{  {
+	
+	 
+	 ExcelReader reader = new ExcelReader();
+	 List<Map<String,String>> testData=
+			 reader.getData("C:\\Users\\vigneshwaran\\Desktop\\FDDetail.xlsx", SheetName);
+
+
+	 String custName = testData.get(rowNumber).get("cust");
+	
+	 String email = testData.get(rowNumber).get("mail");
+	 String UserName = testData.get(rowNumber).get("usname");
+	 String Phone = testData.get(rowNumber).get("Phone");
+	 String firstName = testData.get(rowNumber).get("firstname");
+	 String lastName = testData.get(rowNumber).get("lastname");
+	 String address = testData.get(rowNumber).get("addres");
+	 String zipcode = testData.get(rowNumber).get("zipcod");
+	 String city = testData.get(rowNumber).get("cit");
+	
+	 adminpage.createISO(custName, email, UserName, Phone, firstName, lastName, address, zipcode, city);
+		
+		adminpage.clickNextButton();
+		adminpage.processorType();
+	
+	
+	
+	
+       }
+  
+	
+	
+	
     
 }
 
 
 
 @When("user is boarded a Processor Info  FD Iso given sheetname {string} and rownumber {int}")
-public void user_is_boarded_a_processor_info_fd_iso_given_sheetname_and_rownumber(String string, Integer int1) {
+public void user_is_boarded_a_processor_info_fd_iso_given_sheetname_and_rownumber(String SheetName, Integer rowNumber)throws InvalidFormatException, IOException, InterruptedException, org.apache.poi.openxml4j.exceptions.InvalidFormatException{  {
+	
+	 ExcelReader reader = new ExcelReader();
+	 List<Map<String,String>> testData=
+			 reader.getData("C:\\Users\\vigneshwaran\\Desktop\\FDDetail.xlsx", SheetName);
+	 
+	 String Tid = testData.get(rowNumber).get("TPPId");
+		
+	 String Sid = testData.get(rowNumber).get("ServiceId");
+	 String AName = testData.get(rowNumber).get("AppName");
+	 
+	     adminpage.FDOMAHA(Tid, Sid, AName);
+	     adminpage.clickNextButton();
+		 adminpage.clickNextButton();
+		 adminpage.clickNextButton();
+		 adminpage.selectallmodule();
+		 adminpage.activationISO();
+	 
+	 
+}
+
+	
+	
+	
+	
+	
+	
     
 }
 
 
 
 @When("FD OMAHA processor select the Add User option")
-public void fd_omaha_processor_select_the_add_user_option() {
+public void fd_omaha_processor_select_the_add_user_option() throws InterruptedException {
     
-	
+	adminpage.AddUser();
 	
 	
 	
@@ -238,8 +302,27 @@ public void fd_omaha_processor_select_the_add_user_option() {
 
 
 @When("user is boarded a Admin user FD processor given sheetname {string} and rownumber {int}")
-public void user_is_boarded_a_admin_user_fd_processor_given_sheetname_and_rownumber(String string, Integer int1) {
+public void user_is_boarded_a_admin_user_fd_processor_given_sheetname_and_rownumber(String SheetName, Integer rowNumber) throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, InterruptedException {
     
+
+	 ExcelReader reader = new ExcelReader();
+	 List<Map<String,String>> testData=
+			 reader.getData("\\Users\\vigneshwaran\\Documents\\Automation testing\\FDDetail.xlsx", SheetName);
+
+
+	 String email = testData.get(rowNumber).get("mail2");
+	 String UserName = testData.get(rowNumber).get("usname2");
+	 String Phone = testData.get(rowNumber).get("Phone2");
+	 String firstName = testData.get(rowNumber).get("firstname2");
+	 String lastName = testData.get(rowNumber).get("lastname2");
+	 adminpage.AddUserDetail(email, UserName, Phone, firstName, lastName);
+	
+	 adminpage.AddUserActivation();
+	
+	
+	
+	
+	
 	
 	
 	
@@ -248,14 +331,49 @@ public void user_is_boarded_a_admin_user_fd_processor_given_sheetname_and_rownum
 
 
 @When("FD OMAHA processor to select the Add Customer option in User Level")
-public void fd_omaha_processor_to_select_the_add_customer_option_in_user_level() {
+public void fd_omaha_processor_to_select_the_add_customer_option_in_user_level() throws InterruptedException {
+	adminpage.userLevelUM();
+	adminpage.addISO();
+	adminpage.addcust();
+	
+	
+	
+	
     
 }
 
 
 @When("user is boarded in a userlevel FD Contact Information ISO given sheetname {string} and rownumber {int}")
-public void user_is_boarded_in_a_userlevel_fd_contact_information_iso_given_sheetname_and_rownumber(String string, Integer int1) {
+public void user_is_boarded_in_a_userlevel_fd_contact_information_iso_given_sheetname_and_rownumber(String SheetName, Integer rowNumber) throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, InterruptedException {
     
+	 ExcelReader reader = new ExcelReader();
+	 List<Map<String,String>> testData=
+			 reader.getData("\\Users\\vigneshwaran\\Documents\\Automation testing\\FDDetail.xlsx", SheetName);
+	
+	
+	 String custName = testData.get(rowNumber).get("custname2");
+		
+	 String email = testData.get(rowNumber).get("UserLevelMail");
+	 String UserName = testData.get(rowNumber).get("UserLevelname");
+	 String Phone = testData.get(rowNumber).get("UserLevelphone");
+	 String firstName = testData.get(rowNumber).get("UserLevelfirstname");
+	 String lastName = testData.get(rowNumber).get("UserLevellastname");
+	 String address = testData.get(rowNumber).get("UserLeveladd");
+	 String zipcode = testData.get(rowNumber).get("UserLevelzip");
+	 String city = testData.get(rowNumber).get("UserLevelcit");
+	
+	 adminpage.userLevelISO2(custName, email, UserName, Phone, firstName, lastName, address, zipcode, city);
+	 adminpage.clickNextButton();
+	 adminpage.DPFiscal();
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 
 
@@ -264,8 +382,33 @@ public void user_is_boarded_in_a_userlevel_fd_contact_information_iso_given_shee
 	
 	
 @When("user is boarded in a userlevel FD Processor Info ISO given sheetname {string} and rownumber {int}")
-public void user_is_boarded_in_a_userlevel_fd_processor_info_iso_given_sheetname_and_rownumber(String string, Integer int1) {
-    
+public void user_is_boarded_in_a_userlevel_fd_processor_info_iso_given_sheetname_and_rownumber(String SheetName, Integer rowNumber) throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, InterruptedException {
+	 ExcelReader reader = new ExcelReader();
+	 List<Map<String,String>> testData=
+			 reader.getData("\\Users\\vigneshwaran\\Documents\\Automation testing\\FDDetail.xlsx", SheetName);
+	 
+	 String Tid = testData.get(rowNumber).get("TPPId");
+		
+	 String Sid = testData.get(rowNumber).get("ServiceId");
+	 String AName = testData.get(rowNumber).get("AppName");
+	 
+	        adminpage.FDOMAHA(Tid, Sid, AName);
+	        adminpage.clickNextButton();
+			adminpage.clickNextButton();
+			adminpage.clickNextButton();
+			adminpage.selectallmodule();
+			adminpage.userLevelactivationISO2();
+	
+	
+	
+}
+	
+	
+	
+	
+	
+	
+	
 }
 
 
@@ -278,29 +421,3 @@ public void user_is_boarded_in_a_userlevel_fd_processor_info_iso_given_sheetname
 	
 	
 	
-
-	@When("user is to boarded a Admin user")
-	public void user_is_to_boarded_a_admin_user() throws InterruptedException {
-		adminpage.AddUser();
-
-	}
-
-	@When("user is the boarded in a userlevel ISO")
-	public void user_is_the_boarded_in_a_userlevel_iso() throws InterruptedException {
-		adminpage.userLevelUM();
-		adminpage.addISO();
-		adminpage.addcust();
-		adminpage.userLevelISO2();
-		adminpage.clickNextButton();
-		adminpage.DPFiscal();
-		adminpage.Processordetails();
-		adminpage.FDOMAHA();
-		adminpage.clickNextButton();
-		adminpage.clickNextButton();
-		adminpage.clickNextButton();
-		adminpage.selectallmodule();
-		adminpage.userLevelactivationISO2();
-
-	}
-
-}

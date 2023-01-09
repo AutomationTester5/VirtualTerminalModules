@@ -423,13 +423,25 @@ public class AdminPage {
 		System.out.println("SUCESSFULLY BORDING FOR UserLevelISO  " + " " + getEML);
 
 	}
+	
+	
+	
 
-	public void FDOMAHA() throws InterruptedException {
+	public void FDOMAHA(String Tppid, String serviceid, String Appname) throws InterruptedException {
 
-		driver.findElement(TPPid).sendKeys("RME026");
-		driver.findElement(Serviceid).sendKeys("160");
-		driver.findElement(AppName).sendKeys("RAPIDCONNECTSRS");
+		driver.findElement(TPPid).sendKeys(Tppid);
+		driver.findElement(Serviceid).sendKeys(serviceid);
+		
+		driver.findElement(AppName).sendKeys(Appname);
+		
+		
+		
+		
 
 	}
 
+	
+	
+	
+	
 }
